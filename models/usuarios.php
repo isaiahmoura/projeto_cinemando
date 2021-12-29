@@ -1,12 +1,23 @@
 <?php
 
 class usuarios extends model {
-	
 
-	public function get_ser_data($uid) {
+	public function logado() {
+		if(isset($_SESSION['cinemando']) && !empty($_SESSION['cinemando'])) {
+			header("Location: ".BASE_URL."erro");
+		}
+	}
+
+	public function deslogado() {
+		if(!isset($_SESSION['cinemando']) && empty($_SESSION['cinemando'])) {
+			header("Location: ".BASE_URL."erro");
+		}
+	}
+
+	public function user_data($uid) {
 		$array = array();
 
-		$sql = "SELECT * FROM usuarios WHERE id = '$uid'";
+		$sql = "SELECT id,nome,email,user_img,adm FROM usuarios WHERE id = '$uid'";
 		$sql = $this->db->query($sql);
 
 		if($sql->rowCount() > 0) {
@@ -16,10 +27,17 @@ class usuarios extends model {
 		return $array;
 	}
 
-	public function loggedOn() {
-		if(!isset($_SESSION['node']) && empty($_SESSION['node'])) {
-			header("Location: ".BASE_URL."home");
+	public function user_info($uid) {
+		$array = array();
+
+		$sql = "SELECT id,nome,email,user_img,adm FROM usuarios WHERE id = '$uid'";
+		$sql = $this->db->query($sql);
+
+		if($sql->rowCount() > 0) {
+			$array = $sql->fetch();
 		}
+
+		return $array;
 	}
 
 	public function login($email,$senha) {
@@ -34,8 +52,7 @@ class usuarios extends model {
 
 			if($sql->rowCount() > 0) {
 				$data = $sql->fetch();
-				$_SESSION['node'] = $data['id'];
-				//print_r(($_SESSION['node']));exit;
+				$_SESSION['cinemando'] = $data['id'];
 				header("Location: ".BASE_URL."home");
 			}else {
 				$_SESSION['erro_box'] = 'Senha incorreta.';
@@ -64,7 +81,7 @@ class usuarios extends model {
 
 					if($sql->rowCount() > 0) {
 						$uid = $sql->fetch();
-						$_SESSION['node'] = $uid['id'];
+						$_SESSION['cinemando'] = $uid['id'];
 						header("Location: ".BASE_URL."home");
 					}
 				}

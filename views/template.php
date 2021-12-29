@@ -4,17 +4,18 @@
 		<title>Projeto - Cinema</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/template.css">
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
 	</head>
-	<body>
+	<body id="body">
 		<header class="header">
-			<div class="header_main">
-				<div class="header_left">
-					<div class="header_left_img">
-						<img src="<?php echo BASE_URL; ?>/assets/images/header_logo.png" alt="">
-					</div>
-					<div class="header_title"><a href="<?php echo BASE_URL; ?>">Cinemando</a></div>
+			<div class="header_left">
+				<div class="header_left_img">
+					<img src="<?php echo BASE_URL; ?>/assets/images/header_logo.png" alt="">
 				</div>
+				<div class="header_title"><a href="<?php echo BASE_URL; ?>">Cinemando</a></div>
+			</div>
+			<div class="header_main">
 				<div class="header_right">
 					<div class="header_right_top">
 						<div class="top_content">
@@ -69,15 +70,20 @@
 											<img src="<?php echo BASE_URL; ?>assets/images/users_img/default.png" alt="">
 										</div>
 										<div class="bottom_user_text">
-											<a href="#">Minha Conta</a>
-											<a href="#">Entrar/Registro</a>
+											Minha Conta
+											<a href="<?php echo BASE_URL; ?>login">Entrar/Registro</a>
 										</div>
 									<?php else: ?>
 										<div class="bottom_user_img">
-											<img src="<?php echo BASE_URL; ?>assets/images/users_img/default.png" alt="">
+											<img src="<?php echo BASE_URL; ?>assets/images/users_img/<?php echo $user_data['user_img']; ?>" alt="">
 										</div>
 										<div class="bottom_user_text">
-											<a href="#"><?php echo $user_data['nome']; ?></a>
+											<a href="<?php echo BASE_URL; ?>perfil/index/<?php echo $user_data['id']; ?>">
+												<?php echo $user_data['nome']; ?>
+												<?php if($user_data['adm'] == 1): ?>
+													(ADM)
+												<?php endif; ?>
+											</a>
 											<a href="<?php echo BASE_URL; ?>header/sair">Sair</a>
 										</div>
 									<?php endif; ?>
@@ -90,6 +96,10 @@
 		</header>
 		<div class="container">
 			<?php $this->loadViewInTemplate($viewName,$viewData);?>
+			<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
 		</div>
+		<footer class="footer">
+			a
+		</footer>
 	</body>
 </html>

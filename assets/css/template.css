@@ -2,19 +2,22 @@
 	margin: 0px;
 	padding: 0px;
 }
+body {
+}
 button {
-	background: #0984e3;
+	background: #3c40c6;
 	color: #ffffff;
 	border: none;
 	outline: none;
+	border-radius: 3px;
 }
 button:hover {
-	background: #74b9ff;
+	background: #0fbcf9;
 	cursor: pointer;
+	transition: 1s ease;
 }
 a {
 	color: #ffffff;
-	text-shadow: 2px 2px #0984e3;
 	text-decoration: none;
 }
 a:hover {
@@ -25,12 +28,13 @@ a:hover {
 	background: #2d3436;
 	width: 100%;
 	height: 150px;
+	border-bottom: 2px solid #0984e3;
+	display: flex;
 }
 .header_main {
-	width: 90%;
+	width: 80%;
 	height: 100%;
 	display: flex;
-	margin: auto;
 }
 .header_left {
 	width: 200px;
@@ -56,7 +60,6 @@ a:hover {
 .header_title a {
 	color: #FFFFFF;
 	font-size: 22px;
-	text-shadow: 2px 2px #0984e3;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -74,7 +77,6 @@ a:hover {
 	border-bottom: 2px solid #0984e3;
 	display: flex;
 	align-items: center;
-	margin: auto;
 }
 .top_content ul {
 	list-style: none;
@@ -89,7 +91,6 @@ a:hover {
 }
 .top_content ul li a {
 	color: #FFFFFF;
-	text-shadow: 2px 2px #0984e3;
 	text-decoration: none;
 }
 .top_content input {
@@ -105,8 +106,7 @@ a:hover {
 }
 .top_content button {
 	position: absolute;
-	background: none;
-	right: 89px;
+	right: 100px;
 	width: 50px;
 	height: 30px;
 }
@@ -114,7 +114,6 @@ a:hover {
 	width: 95%;
 	height: 90px;
 	display: flex;
-	margin: auto;
 }
 .bottom_tags {
 	width: 80%;
@@ -132,7 +131,6 @@ a:hover {
 	list-style: none;
 }
 .tags ul li {
-	background: #3c40c6;
 	width: 60px;
 	padding: 5px;
 	border: 1px solid white;
@@ -156,7 +154,7 @@ a:hover {
 	align-items: center;
 }
 .bottom_user {
-	width: 150px;
+	width: 200px;
 	height: 50%;
 	display: flex;
 	margin-left: 41px;
@@ -175,14 +173,18 @@ a:hover {
 .bottom_user_text {
 	height: 100%;
 	font-size: 14px;
+	color: #ffffff;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
-
-
 .container {
-	width: 80%;
-	margin: auto;
+	width: 100%;
+}
+.footer {
+	background: #2d3436;
+	width: 100%;
+	height: 250px;
+	border-top: 2px solid #0984e3;
 }
